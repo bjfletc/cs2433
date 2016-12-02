@@ -63,20 +63,20 @@ bool SetClass::add(int elementToAdd) {
     
     int currentElement = elementToAdd;
     
-    if (elementToAdd < 0) {
+    if (currentElement < 0) {
         cout << "ERROR MESSAGE: Integer Out of Bounds ~0 -- 50~" << endl;
         return false;
-    } else if (elementToAdd > 50) {
+    } else if (currentElement > 50) {
         cout << "ERROR MESSAGE: Integer Out of Bounds ~0 -- 50~" << endl;
         return false;
     } else {
         // Reached A Comprehensible Stage
         
-        if (set[elementToAdd] == true) {
-            cout << "ERROR MESSAGE: " << elementToAdd << " is already a member." << endl;
+        if (set[currentElement] == true) {
+            cout << "ERROR MESSAGE: " << currentElement << " is already a member." << endl;
             return false;
         } else {
-            set[elementToAdd] = true;
+            set[currentElement] = true;
             return true;
         }
     }
@@ -110,3 +110,44 @@ bool SetClass::remove(int elementToRemove) {
 
 
 /*** End definitions for SetClass class ***/
+
+/*** Creation of Operators ***/
+
+SetClass operator+ (SetClass a, SetClass b) {
+
+	SetClass c;
+	
+	for (int i = 0; i < 51; ++i) {
+		if (a.isElement(i) || b.isElement(i)) {
+			c.add(i);
+		}
+	}
+	
+	return c;
+}
+
+SetClass operator* (SetClass a, SetClass b) {
+	SetClass c;
+	
+	for (int i = 0; i < 51; ++i) {
+		if (a.isElement(i) && b.isElement(i)) {
+			c.add(i);
+		}
+	}
+	
+	return c;
+}
+
+SetClass operator- (SetClass b) {
+	
+	for (int i = 0; i < 51; ++i) {
+		if (b.isElement(i)) {
+			b.remove(i);
+		} else {
+			b.add(i);
+		}
+	}
+	
+	return b;
+	
+}
