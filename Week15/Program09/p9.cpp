@@ -124,10 +124,22 @@ int main() {
     cout << endl;
     
     /*** Case C = A + B ***/
+    cout << "Case C = A + B: " << endl;
+    C = A + B;
+    printer.print(C);
+    cout << endl;
     
     /*** Case C = A * B ***/
+    cout << "Case C = A * B: " << endl;
+    C = A * B;
+    printer.print(C);
+    cout << endl;
     
     /*** Case C = -B ***/
+    cout << "Case C = -B: " << endl;
+    C = -B;
+    printer.print(C);
+    cout << endl;
     
     /*** Check Set A, B, C For currentUserInputCheck ***/
     cout << "Enter an Integer to see if it is in Sets A, B, or C: ";
